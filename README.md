@@ -12,7 +12,7 @@ This module would protect against commons attacks like `GET /../file.js` which r
 ```js
 var resolve = require('resolve-path')
 
-var filename = resolve(process.cwd(), '/public/favicon.ico')
+var filename = resolve(process.cwd(), 'public/favicon.ico')
 // => ~/public/favicon.ico
 ```
 
