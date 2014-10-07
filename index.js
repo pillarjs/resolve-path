@@ -7,7 +7,7 @@ module.exports = function resolvePath(root, path) {
     path = root
     root = process.cwd()
   } else {
-    root = root || process.cwd()
+    root = resolve(root)
   }
 
   // path should never be absolute

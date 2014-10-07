@@ -13,6 +13,10 @@ describe('Resolve Path', function () {
     resolve(__dirname, 'resolve.js').should.equal(path.resolve(__dirname, 'resolve.js'))
   })
 
+  it('should not out of bounds', function () {
+    resolve(__dirname + '/../', 'index.js').should.equal(path.resolve(__dirname, '../index.js'))
+  })
+
   describe('should throw if path', function () {
     it('is absolute', function () {
       assert.throws(function () {
