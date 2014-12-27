@@ -6,15 +6,15 @@ var resolve = require('..')
 
 describe('Resolve Path', function () {
   it('should default to process.cwd()', function () {
-    resolve('index.js').should.equal(path.resolve('index.js'))
+    assert.equal(resolve('index.js'), path.resolve('index.js'))
   })
 
   it('should work with a root', function () {
-    resolve(__dirname, 'resolve.js').should.equal(path.resolve(__dirname, 'resolve.js'))
+    assert.equal(resolve(__dirname, 'resolve.js'), path.resolve(__dirname, 'resolve.js'))
   })
 
   it('should not out of bounds', function () {
-    resolve(__dirname + '/../', 'index.js').should.equal(path.resolve(__dirname, '../index.js'))
+    assert.equal(resolve(__dirname + '/../', 'index.js'), path.resolve(__dirname, '../index.js'))
   })
 
   describe('should throw if path', function () {
