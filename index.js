@@ -1,5 +1,6 @@
 
 var resolve = require('path').resolve
+var assert = require('http-assert')
 
 module.exports = function resolvePath(root, path) {
   // just like path.resolve, make root optional
@@ -11,21 +12,15 @@ module.exports = function resolvePath(root, path) {
   }
 
   // path should never be absolute
-  if (resolve(path) === path) error(400, 'malicious path')
+  assert(resolve(path) !== path, 400, 'malicious path')
 
   // null byte(s)
-  if (~path.indexOf('\0')) error(400, 'null bytes')
+  assert(!~path.indexOf('\0'), 400, 'null bytes')
 
   path = resolve(root, path)
 
   // out of bounds
-  if (path.indexOf(root)) error(400, 'malicious path')
+  assert(!path.indexOf(root), 400, 'malicious path')
 
   return path
-}
-
-function error(status, message) {
-  var err = new Error(message)
-  err.status = status
-  throw err
 }

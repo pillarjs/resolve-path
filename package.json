@@ -18,5 +18,8 @@
     "path",
     "safe"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "http-assert": "1"
+  }
 }
