@@ -9,7 +9,7 @@
     "http-assert": "1"
   },
   "devDependencies": {
-    "istanbul": "0",
+    "istanbul": "0.3.5",
     "mocha": "2"
   },
   "files": [
