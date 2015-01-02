@@ -8,26 +8,87 @@
 
 Resolve a relative path against a root path with validation.
 
-This module would protect against commons attacks like `GET /../file.js` which reaches outside the root folder.
+This module would protect against commons attacks like `GET /../file.js`
+which reaches outside the root folder.
+
+## Installation
+
+```sh
+$ npm install resolve-path
+```
 
 ## API
 
-### absolutePath = resolve(rootPath, relativePath)
-
 ```js
-var resolve = require('resolve-path')
-
-var filename = resolve(process.cwd(), 'public/favicon.ico')
-// => ~/public/favicon.ico
+var resolvePath = require('resolve-path')
 ```
 
-`relativePath` is generally a path given by a server. For example, in Express, it's probably `req.path.slice(1)`, removing the leading `/` to make the path relative.
+### resolvePath(relativePath)
 
-`rootPath` defaults to `process.cwd()`.
+Resolve a relative path against `process.cwd()` (the process's current working
+directory) and return an absolute path. *This will throw* if the resulting resolution
+seems malicious. The following are malicious:
 
-`absolutePath` is the resolved path.
+  - The relative path is an absolute path
+  - The relative path contains a NULL byte
+  - The relative path resolves to a path outside of `process.cwd()`
 
-This function __throws__.
+### resolvePath(rootPath, relativePath)
+
+Resolve a relative path against the provided root path and return an absolute path.
+*This will throw* if the resulting resolution seems malicious. The following are
+malicious:
+
+  - The relative path is an absolute path
+  - The relative path contains a NULL byte
+  - The relative path resolves to a path outside of the root path
+
+## Example
+
+### Safely resolve paths in a public directory
+
+```js
+var http = require('http')
+var parseUrl = require('parseurl')
+var path = require('path')
+var resolvePath = require('resolve-path')
+
+// the public directory
+var publicDir = path.join(__dirname, 'public')
+
+// the server
+var server = http.createServer(function onRequest(req, res) {
+  try {
+    // get the pathname from the URL (decoded)
+    var pathname = decodeURIComponent(parseUrl(req).pathname)
+
+    if (!pathname) {
+      res.statusCode = 400
+      res.end('path required')
+      return
+    }
+
+    // remove leading slash
+    var filename = pathname.substr(1)
+
+    // resolve the full path
+    var fullpath = resolvePath(publicDir, filename)
+
+    // echo the resolved path
+    res.statusCode = 200
+    res.end('resolved to ' + fullpath)
+  } catch (err) {
+    res.statusCode = err.status || 500
+    res.end(err.message)
+  }
+})
+
+server.listen(3000)
+```
+
+## License
+
+[MIT](LICENSE)
 
 [npm-image]: https://img.shields.io/npm/v/resolve-path.svg?style=flat
 [npm-url]: https://npmjs.org/package/resolve-path
