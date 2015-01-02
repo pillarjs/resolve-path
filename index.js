@@ -73,7 +73,7 @@ function resolvePath(rootPath, relativePath) {
 
   // path outside root
   if ((path + sep).substr(0, root.length) !== root) {
-    throw createError(400, 'Malicious Path')
+    throw createError(403)
   }
 
   return path

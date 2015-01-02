@@ -52,9 +52,9 @@ describe('resolvePath(relativePath)', function () {
   })
 
   describe('when relativePath resolves outside cwd', function () {
-    it('should throw Malicious Path error', function () {
+    it('should throw Forbidden error', function () {
       assert.throws(resolvePath.bind(null, '../index.js'),
-        expectError(400, 'Malicious Path'))
+        expectError(403, 'Forbidden'))
     })
   })
 })
@@ -129,14 +129,14 @@ describe('resolvePath(rootPath, relativePath)', function () {
   })
 
   describe('when relativePath resolves outside rootPath', function () {
-    it('should throw Malicious Path error', function () {
+    it('should throw Forbidden error', function () {
       assert.throws(resolvePath.bind(null, __dirname, '../index.js'),
-        expectError(400, 'Malicious Path'))
+        expectError(403, 'Forbidden'))
     })
 
     it('should not be tricked by missing separator', function () {
       assert.throws(resolvePath.bind(null, __dirname, join('..', basename(__dirname) + '2', 'index.js')),
-        expectError(400, 'Malicious Path'))
+        expectError(403, 'Forbidden'))
     })
   })
 })

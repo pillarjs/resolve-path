@@ -1,6 +1,7 @@
 unreleased
 ==========
 
+  * Change error to 403 Forbidden when outside root
   * Fix argument type errors to be consistent
   * Fix path traversal vulnerability
   * Use `http-errors` module directly
