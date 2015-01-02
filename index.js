@@ -39,7 +39,7 @@ function resolvePath(root, path) {
   assert(resolve(path) !== path, 400, 'malicious path')
 
   // null byte(s)
-  assert(!~path.indexOf('\0'), 400, 'null bytes')
+  assert(!~path.indexOf('\0'), 400, 'malicious path')
 
   path = resolve(root, path)
 
