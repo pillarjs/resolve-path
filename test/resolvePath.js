@@ -26,7 +26,12 @@ describe('resolvePath(relativePath)', function () {
 
       it('should resolve relative to cwd', function () {
         assert.equal(normalize(resolvePath('index.js')),
-          normalize(resolve('index.js')))
+          normalize(join(process.cwd(), 'index.js')))
+      })
+
+      it('should accept empty string', function () {
+        assert.equal(normalize(resolvePath('')),
+          normalize(process.cwd()))
       })
     })
   })
@@ -99,6 +104,11 @@ describe('resolvePath(rootPath, relativePath)', function () {
       it('should resolve relative to rootPath', function () {
         assert.equal(normalize(resolvePath(__dirname, 'index.js')),
           normalize(resolve(__dirname, 'index.js')))
+      })
+
+      it('should accept empty string', function () {
+        assert.equal(normalize(resolvePath(__dirname, '')),
+          normalize(__dirname))
       })
     })
   })
