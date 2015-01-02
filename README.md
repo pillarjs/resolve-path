@@ -6,7 +6,7 @@
 [![Build Status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
-Resolve a path against a root path with validation against common malicious attacks.
+Resolve a relative path against a root path with validation.
 
 This module would protect against commons attacks like `GET /../file.js` which reaches outside the root folder.
 
