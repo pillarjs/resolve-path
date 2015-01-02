@@ -11,13 +11,17 @@ describe('resolvePath(relativePath)', function () {
   describe('arguments', function () {
     describe('relativePath', function () {
       it('should be required', function () {
-        assert.throws(resolvePath.bind(), TypeError)
+        assert.throws(resolvePath.bind(null, undefined),
+          /argument relativePath is required/)
       })
 
       it('should reject non-strings', function () {
-        assert.throws(resolvePath.bind(null, 42), TypeError)
-        assert.throws(resolvePath.bind(null, {}), TypeError)
-        assert.throws(resolvePath.bind(null, []), TypeError)
+        assert.throws(resolvePath.bind(null, 42),
+          /argument relativePath must be a string/)
+        assert.throws(resolvePath.bind(null, {}),
+          /argument relativePath must be a string/)
+        assert.throws(resolvePath.bind(null, []),
+          /argument relativePath must be a string/)
       })
 
       it('should resolve relative to cwd', function () {
@@ -53,13 +57,17 @@ describe('resolvePath(rootPath, relativePath)', function () {
   describe('arguments', function () {
     describe('rootPath', function () {
       it('should be required', function () {
-        assert.throws(resolvePath.bind(null, undefined, 'index.js'), TypeError)
+        assert.throws(resolvePath.bind(null, undefined, 'index.js'),
+          /argument rootPath is required/)
       })
 
       it('should reject non-strings', function () {
-        assert.throws(resolvePath.bind(null, 42, 'index.js'), TypeError)
-        assert.throws(resolvePath.bind(null, {}, 'index.js'), TypeError)
-        assert.throws(resolvePath.bind(null, [], 'index.js'), TypeError)
+        assert.throws(resolvePath.bind(null, 42, 'index.js'),
+          /argument rootPath must be a string/)
+        assert.throws(resolvePath.bind(null, {}, 'index.js'),
+          /argument rootPath must be a string/)
+        assert.throws(resolvePath.bind(null, [], 'index.js'),
+          /argument rootPath must be a string/)
       })
 
       it('should resolve relative to rootPath', function () {
@@ -75,13 +83,17 @@ describe('resolvePath(rootPath, relativePath)', function () {
 
     describe('relativePath', function () {
       it('should be required', function () {
-        assert.throws(resolvePath.bind(null, __dirname, undefined), TypeError)
+        assert.throws(resolvePath.bind(null, __dirname, undefined),
+          /argument relativePath is required/)
       })
 
       it('should reject non-strings', function () {
-        assert.throws(resolvePath.bind(null, __dirname, 42), TypeError)
-        assert.throws(resolvePath.bind(null, __dirname, {}), TypeError)
-        assert.throws(resolvePath.bind(null, __dirname, []), TypeError)
+        assert.throws(resolvePath.bind(null, __dirname, 42),
+          /argument relativePath must be a string/)
+        assert.throws(resolvePath.bind(null, __dirname, {}),
+          /argument relativePath must be a string/)
+        assert.throws(resolvePath.bind(null, __dirname, []),
+          /argument relativePath must be a string/)
       })
 
       it('should resolve relative to rootPath', function () {

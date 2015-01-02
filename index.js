@@ -21,19 +21,39 @@ module.exports = resolvePath
 /**
  * Resolve relative path against a root path
  *
- * @param {string} root
- * @param {string} path
+ * @param {string} rootPath
+ * @param {string} relativePath
  * @return {string}
  * @public
  */
-function resolvePath(root, path) {
-  // just like path.resolve, make root optional
+function resolvePath(rootPath, relativePath) {
+  var path = relativePath
+  var root = rootPath
+
+  // root is optional, similar to root.resolve
   if (arguments.length === 1) {
-    path = root
+    path = rootPath
     root = process.cwd()
-  } else {
-    root = resolve(root)
   }
+
+  if (root == null) {
+    throw new TypeError('argument rootPath is required')
+  }
+
+  if (typeof root !== 'string') {
+    throw new TypeError('argument rootPath must be a string')
+  }
+
+  if (path == null) {
+    throw new TypeError('argument relativePath is required')
+  }
+
+  if (typeof path !== 'string') {
+    throw new TypeError('argument relativePath must be a string')
+  }
+
+  // resolve the root path
+  root = resolve(root)
 
   // path should never be absolute
   assert(resolve(path) !== path, 400, 'malicious path')
