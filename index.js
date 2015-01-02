@@ -1,8 +1,32 @@
+/*!
+ * resolve-path
+ * Copyright(c) 2014 Jonathan Ong
+ * MIT Licensed
+ */
 
-var resolve = require('path').resolve
+/**
+ * Module dependencies.
+ * @private
+ */
+
 var assert = require('http-assert')
+var resolve = require('path').resolve
 
-module.exports = function resolvePath(root, path) {
+/**
+ * Module exports.
+ */
+
+module.exports = resolvePath
+
+/**
+ * Resolve relative path against a root path
+ *
+ * @param {string} root
+ * @param {string} path
+ * @return {string}
+ * @public
+ */
+function resolvePath(root, path) {
   // just like path.resolve, make root optional
   if (arguments.length === 1) {
     path = root
