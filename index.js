@@ -10,7 +10,9 @@
  */
 
 var createError = require('http-errors')
+var normalize = require('path').normalize
 var resolve = require('path').resolve
+var sep = require('path').sep
 
 /**
  * Module exports.
@@ -62,14 +64,14 @@ function resolvePath(rootPath, relativePath) {
     throw createError(400, 'Malicious Path')
   }
 
-  // resolve the root path
-  root = resolve(root)
+  // resolve & normalize the root path
+  root = normalize(resolve(root) + sep)
 
   // resolve the path
   path = resolve(root, path)
 
-  // out of bounds
-  if (path.indexOf(root) !== 0) {
+  // path outside root
+  if ((path + sep).substr(0, root.length) !== root) {
     throw createError(400, 'Malicious Path')
   }
 

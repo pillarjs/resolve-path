@@ -3,6 +3,7 @@ var assert = require('assert')
 var path = require('path')
 var resolvePath = require('..')
 
+var basename = path.basename
 var join = path.join
 var normalize = path.normalize
 var resolve = path.resolve
@@ -127,9 +128,14 @@ describe('resolvePath(rootPath, relativePath)', function () {
     })
   })
 
-  describe('when relativePath resolves outside cwd', function () {
+  describe('when relativePath resolves outside rootPath', function () {
     it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, __dirname, '../index.js'),
+        expectError(400, 'Malicious Path'))
+    })
+
+    it('should not be tricked by missing separator', function () {
+      assert.throws(resolvePath.bind(null, __dirname, join('..', basename(__dirname) + '2', 'index.js')),
         expectError(400, 'Malicious Path'))
     })
   })
