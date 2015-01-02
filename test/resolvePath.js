@@ -32,23 +32,23 @@ describe('resolvePath(relativePath)', function () {
   })
 
   describe('when relativePath is absolute', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, __dirname),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 
   describe('when relativePath contains a NULL byte', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, 'hi\0there'),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 
   describe('when relativePath resolves outside cwd', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, '../index.js'),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 })
@@ -104,23 +104,23 @@ describe('resolvePath(rootPath, relativePath)', function () {
   })
 
   describe('when relativePath is absolute', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, __dirname, __dirname),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 
   describe('when relativePath contains a NULL byte', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, __dirname, 'hi\0there'),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 
   describe('when relativePath resolves outside cwd', function () {
-    it('should throw malicious path error', function () {
+    it('should throw Malicious Path error', function () {
       assert.throws(resolvePath.bind(null, __dirname, '../index.js'),
-        expectError(400, 'malicious path'))
+        expectError(400, 'Malicious Path'))
     })
   })
 })

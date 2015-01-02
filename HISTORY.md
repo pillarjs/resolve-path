@@ -2,6 +2,7 @@ unreleased
 ==========
 
   * Fix argument type errors to be consistent
+  * Use `http-errors` module directly
 
 1.1.0 / 2014-12-27
 ==================

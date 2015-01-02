@@ -6,7 +6,7 @@
   "license": "MIT",
   "repository": "pillarjs/resolve-path",
   "dependencies": {
-    "http-assert": "1"
+    "http-errors": "~1.2.8"
   },
   "devDependencies": {
     "istanbul": "0.3.5",

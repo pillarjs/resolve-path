@@ -9,7 +9,7 @@
  * @private
  */
 
-var assert = require('http-assert')
+var createError = require('http-errors')
 var resolve = require('path').resolve
 
 /**
@@ -52,19 +52,26 @@ function resolvePath(rootPath, relativePath) {
     throw new TypeError('argument relativePath must be a string')
   }
 
+  // containing NULL bytes is malicious
+  if (path.indexOf('\0') !== -1) {
+    throw createError(400, 'Malicious Path')
+  }
+
+  // path should never be absolute
+  if (resolve(path) === path) {
+    throw createError(400, 'Malicious Path')
+  }
+
   // resolve the root path
   root = resolve(root)
 
-  // path should never be absolute
-  assert(resolve(path) !== path, 400, 'malicious path')
-
-  // null byte(s)
-  assert(!~path.indexOf('\0'), 400, 'malicious path')
-
+  // resolve the path
   path = resolve(root, path)
 
   // out of bounds
-  assert(!path.indexOf(root), 400, 'malicious path')
+  if (path.indexOf(root) !== 0) {
+    throw createError(400, 'Malicious Path')
+  }
 
   return path
 }
