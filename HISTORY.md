@@ -1,5 +1,5 @@
-unreleased
-==========
+1.2.0 / 2015-01-05
+==================
 
   * Change error to 403 Forbidden when outside root
   * Fix argument type errors to be consistent
