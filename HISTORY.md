@@ -1,5 +1,5 @@
-unreleased
-==========
+1.2.1 / 2015-01-19
+==================
 
   * Fix root path disclosure
 
