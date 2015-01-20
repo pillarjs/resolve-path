@@ -1,3 +1,8 @@
+unreleased
+==========
+
+  * Fix root path disclosure
+
 1.2.0 / 2015-01-05
 ==================
 

@@ -42,6 +42,7 @@ malicious:
   - The relative path is an absolute path
   - The relative path contains a NULL byte
   - The relative path resolves to a path outside of the root path
+  - The relative path traverses above the root and back down
 
 ## Example
 

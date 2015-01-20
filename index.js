@@ -22,6 +22,13 @@ var sep = require('path').sep
 module.exports = resolvePath
 
 /**
+ * Module variables.
+ * @private
+ */
+
+var upPathRegexp = /(?:^|[\\\/])\.\.(?:[\\\/]|$)/
+
+/**
  * Resolve relative path against a root path
  *
  * @param {string} rootPath
@@ -65,16 +72,16 @@ function resolvePath(rootPath, relativePath) {
     throw createError(400, 'Malicious Path')
   }
 
+  // path outside root
+  if (upPathRegexp.test(normalize('.' + sep + path))) {
+    throw createError(403)
+  }
+
   // resolve & normalize the root path
   root = normalize(resolve(root) + sep)
 
   // resolve the path
   path = resolve(root, path)
-
-  // path outside root
-  if ((path + sep).substr(0, root.length) !== root) {
-    throw createError(403)
-  }
 
   return path
 }

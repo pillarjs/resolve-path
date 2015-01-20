@@ -57,6 +57,13 @@ describe('resolvePath(relativePath)', function () {
         expectError(403, 'Forbidden'))
     })
   })
+
+  describe('when relativePath discloses cwd', function () {
+    it('should throw Forbidden error', function () {
+      assert.throws(resolvePath.bind(null, join('test', '..', '..', basename(process.cwd()), 'index.js')),
+        expectError(403, 'Forbidden'))
+    })
+  })
 })
 
 describe('resolvePath(rootPath, relativePath)', function () {
@@ -136,6 +143,13 @@ describe('resolvePath(rootPath, relativePath)', function () {
 
     it('should not be tricked by missing separator', function () {
       assert.throws(resolvePath.bind(null, __dirname, join('..', basename(__dirname) + '2', 'index.js')),
+        expectError(403, 'Forbidden'))
+    })
+  })
+
+  describe('when relativePath discloses rootPath', function () {
+    it('should throw Forbidden error', function () {
+      assert.throws(resolvePath.bind(null, __dirname, join('test', '..', '..', basename(__dirname), 'index.js')),
         expectError(403, 'Forbidden'))
     })
   })
