@@ -32,6 +32,7 @@ seems malicious. The following are malicious:
   - The relative path is an absolute path
   - The relative path contains a NULL byte
   - The relative path resolves to a path outside of `process.cwd()`
+  - The relative path traverses above `process.cwd()` and back down
 
 ### resolvePath(rootPath, relativePath)
 
