@@ -1,5 +1,5 @@
-unreleased
-==========
+1.2.2 / 2015-02-16
+==================
 
   * deps: http-errors@~1.3.1
     - Construct errors using defined constructors from `createError`
