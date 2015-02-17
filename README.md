@@ -92,13 +92,13 @@ server.listen(3000)
 
 [MIT](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/resolve-path.svg?style=flat
+[npm-image]: https://img.shields.io/npm/v/resolve-path.svg
 [npm-url]: https://npmjs.org/package/resolve-path
-[node-image]: https://img.shields.io/node/v/resolve-path.svg?style=flat
+[node-image]: https://img.shields.io/node/v/resolve-path.svg
 [node-url]: http://nodejs.org/download/
-[travis-image]: https://img.shields.io/travis/pillarjs/resolve-path.svg?style=flat
+[travis-image]: https://img.shields.io/travis/pillarjs/resolve-path/master.svg
 [travis-url]: https://travis-ci.org/pillarjs/resolve-path
-[coveralls-image]: https://img.shields.io/coveralls/pillarjs/resolve-path.svg?style=flat
+[coveralls-image]: https://img.shields.io/coveralls/pillarjs/resolve-path/master.svg
 [coveralls-url]: https://coveralls.io/r/pillarjs/resolve-path?branch=master
-[downloads-image]: https://img.shields.io/npm/dm/resolve-path.svg?style=flat
+[downloads-image]: https://img.shields.io/npm/dm/resolve-path.svg
 [downloads-url]: https://npmjs.org/package/resolve-path
