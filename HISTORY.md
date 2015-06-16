@@ -1,5 +1,5 @@
-unreleased
-==========
+1.3.0 / 2015-06-15
+==================
 
   * Use `path-is-absolute` to better detect absolute paths
   * perf: enable strict mode
