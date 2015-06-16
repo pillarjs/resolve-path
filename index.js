@@ -84,7 +84,5 @@ function resolvePath(rootPath, relativePath) {
   root = normalize(resolve(root) + sep)
 
   // resolve the path
-  path = resolve(root, path)
-
-  return path
+  return resolve(root, path)
 }

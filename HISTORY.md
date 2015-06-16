@@ -3,6 +3,7 @@ unreleased
 
   * Use `path-is-absolute` to better detect absolute paths
   * perf: enable strict mode
+  * perf: skip a variable reassignment
 
 1.2.2 / 2015-02-16
 ==================
