@@ -14,6 +14,7 @@
 
 var createError = require('http-errors')
 var normalize = require('path').normalize
+var pathIsAbsolute = require('path-is-absolute')
 var resolve = require('path').resolve
 var sep = require('path').sep
 
@@ -70,7 +71,7 @@ function resolvePath(rootPath, relativePath) {
   }
 
   // path should never be absolute
-  if (resolve(path) === path) {
+  if (pathIsAbsolute.posix(path) || pathIsAbsolute.win32(path)) {
     throw createError(400, 'Malicious Path')
   }
 

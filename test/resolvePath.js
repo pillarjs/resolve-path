@@ -7,6 +7,7 @@ var basename = path.basename
 var join = path.join
 var normalize = path.normalize
 var resolve = path.resolve
+var sep = path.sep
 
 describe('resolvePath(relativePath)', function () {
   describe('arguments', function () {
@@ -39,7 +40,7 @@ describe('resolvePath(relativePath)', function () {
 
   describe('when relativePath is absolute', function () {
     it('should throw Malicious Path error', function () {
-      assert.throws(resolvePath.bind(null, __dirname),
+      assert.throws(resolvePath.bind(null, __dirname + sep),
         expectError(400, 'Malicious Path'))
     })
   })
