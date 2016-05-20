@@ -40,7 +40,7 @@ describe('resolvePath(relativePath)', function () {
 
   describe('when relativePath is absolute', function () {
     it('should throw Malicious Path error', function () {
-      assert.throws(resolvePath.bind(null, __dirname + sep),
+      assert.throws(resolvePath.bind(null, join(__dirname, sep)),
         expectError(400, 'Malicious Path'))
     })
   })
@@ -156,10 +156,10 @@ describe('resolvePath(rootPath, relativePath)', function () {
   })
 })
 
-function expectError(status, message) {
-  return function expected(actual) {
-    return actual
-      && actual.status === status
-      && actual.message === message
+function expectError (status, message) {
+  return function expected (actual) {
+    return actual &&
+      actual.status === status &&
+      actual.message === message
   }
 }

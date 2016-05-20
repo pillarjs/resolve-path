@@ -39,7 +39,7 @@ var upPathRegexp = /(?:^|[\\\/])\.\.(?:[\\\/]|$)/
  * @return {string}
  * @public
  */
-function resolvePath(rootPath, relativePath) {
+function resolvePath (rootPath, relativePath) {
   var path = relativePath
   var root = rootPath
 
