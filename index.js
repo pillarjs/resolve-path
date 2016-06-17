@@ -20,6 +20,7 @@ var sep = require('path').sep
 
 /**
  * Module exports.
+ * @public
  */
 
 module.exports = resolvePath
@@ -29,7 +30,7 @@ module.exports = resolvePath
  * @private
  */
 
-var upPathRegexp = /(?:^|[\\\/])\.\.(?:[\\\/]|$)/
+var UP_PATH_REGEXP = /(?:^|[\\\/])\.\.(?:[\\\/]|$)/
 
 /**
  * Resolve relative path against a root path
@@ -39,6 +40,7 @@ var upPathRegexp = /(?:^|[\\\/])\.\.(?:[\\\/]|$)/
  * @return {string}
  * @public
  */
+
 function resolvePath (rootPath, relativePath) {
   var path = relativePath
   var root = rootPath
@@ -76,7 +78,7 @@ function resolvePath (rootPath, relativePath) {
   }
 
   // path outside root
-  if (upPathRegexp.test(normalize('.' + sep + path))) {
+  if (UP_PATH_REGEXP.test(normalize('.' + sep + path))) {
     throw createError(403)
   }
 
