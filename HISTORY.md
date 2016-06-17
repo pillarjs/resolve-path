@@ -1,5 +1,5 @@
-unreleased
-==========
+1.3.2 / 2016-06-17
+==================
 
   * deps: http-errors@~1.5.0
     - Use `setprototypeof` module to replace `__proto__` setting
