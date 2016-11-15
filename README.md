@@ -24,7 +24,7 @@ $ npm install resolve-path
 
 ## API
 
-```js
+```
 var resolvePath = require('resolve-path')
 ```
 
@@ -64,7 +64,7 @@ var resolvePath = require('resolve-path')
 var publicDir = path.join(__dirname, 'public')
 
 // the server
-var server = http.createServer(function onRequest(req, res) {
+var server = http.createServer(function onRequest (req, res) {
   try {
     // get the pathname from the URL (decoded)
     var pathname = decodeURIComponent(parseUrl(req).pathname)
