@@ -31,6 +31,11 @@ describe('resolvePath(relativePath)', function () {
           normalize(join(process.cwd(), 'index.js')))
       })
 
+      it('should resolve relative with special characters', function () {
+        assert.equal(normalize(resolvePath('f:oo$bar')),
+          normalize(join(process.cwd(), './f:oo$bar')))
+      })
+
       it('should accept empty string', function () {
         assert.equal(normalize(resolvePath('')),
           normalize(process.cwd()))
@@ -87,6 +92,11 @@ describe('resolvePath(rootPath, relativePath)', function () {
       it('should resolve relative to rootPath', function () {
         assert.equal(normalize(resolvePath(__dirname, 'index.js')),
           normalize(resolve(__dirname, 'index.js')))
+      })
+
+      it('should resolve relative to rootPath with special characters', function () {
+        assert.equal(normalize(resolvePath(__dirname, 'f:oo$bar')),
+        normalize(resolve(__dirname, './f:oo$bar')))
       })
 
       it('should accept relative path', function () {

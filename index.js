@@ -13,6 +13,7 @@
  */
 
 var createError = require('http-errors')
+var join = require('path').join
 var normalize = require('path').normalize
 var pathIsAbsolute = require('path-is-absolute')
 var resolve = require('path').resolve
@@ -82,9 +83,6 @@ function resolvePath (rootPath, relativePath) {
     throw createError(403)
   }
 
-  // resolve & normalize the root path
-  root = normalize(resolve(root) + sep)
-
-  // resolve the path
-  return resolve(root, path)
+  // join the relative path
+  return normalize(join(resolve(root), path))
 }

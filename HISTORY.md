@@ -1,6 +1,7 @@
 unreleased
 ==========
 
+  * Fix resolving paths with certain special characters
   * deps: http-errors@~1.6.2
     - Make `message` property enumerable for `HttpError`s
     - deps: depd@1.1.1
