@@ -1,5 +1,5 @@
-unreleased
-==========
+1.4.0 / 2018-02-13
+==================
 
   * Fix resolving paths with certain special characters
   * deps: http-errors@~1.6.2
