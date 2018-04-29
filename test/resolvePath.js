@@ -96,7 +96,7 @@ describe('resolvePath(rootPath, relativePath)', function () {
 
       it('should resolve relative to rootPath with special characters', function () {
         assert.equal(normalize(resolvePath(__dirname, 'f:oo$bar')),
-        normalize(resolve(__dirname, './f:oo$bar')))
+          normalize(resolve(__dirname, './f:oo$bar')))
       })
 
       it('should accept relative path', function () {
