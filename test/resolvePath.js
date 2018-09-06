@@ -27,17 +27,17 @@ describe('resolvePath(relativePath)', function () {
       })
 
       it('should resolve relative to cwd', function () {
-        assert.equal(normalize(resolvePath('index.js')),
+        assert.strictEqual(normalize(resolvePath('index.js')),
           normalize(join(process.cwd(), 'index.js')))
       })
 
       it('should resolve relative with special characters', function () {
-        assert.equal(normalize(resolvePath('f:oo$bar')),
+        assert.strictEqual(normalize(resolvePath('f:oo$bar')),
           normalize(join(process.cwd(), './f:oo$bar')))
       })
 
       it('should accept empty string', function () {
-        assert.equal(normalize(resolvePath('')),
+        assert.strictEqual(normalize(resolvePath('')),
           normalize(process.cwd()))
       })
     })
@@ -90,17 +90,17 @@ describe('resolvePath(rootPath, relativePath)', function () {
       })
 
       it('should resolve relative to rootPath', function () {
-        assert.equal(normalize(resolvePath(__dirname, 'index.js')),
+        assert.strictEqual(normalize(resolvePath(__dirname, 'index.js')),
           normalize(resolve(__dirname, 'index.js')))
       })
 
       it('should resolve relative to rootPath with special characters', function () {
-        assert.equal(normalize(resolvePath(__dirname, 'f:oo$bar')),
+        assert.strictEqual(normalize(resolvePath(__dirname, 'f:oo$bar')),
           normalize(resolve(__dirname, './f:oo$bar')))
       })
 
       it('should accept relative path', function () {
-        assert.equal(normalize(resolvePath(join(__dirname, '..'), 'index.js')),
+        assert.strictEqual(normalize(resolvePath(join(__dirname, '..'), 'index.js')),
           normalize(resolve(join(__dirname, '..'), 'index.js')))
       })
     })
@@ -121,12 +121,12 @@ describe('resolvePath(rootPath, relativePath)', function () {
       })
 
       it('should resolve relative to rootPath', function () {
-        assert.equal(normalize(resolvePath(__dirname, 'index.js')),
+        assert.strictEqual(normalize(resolvePath(__dirname, 'index.js')),
           normalize(resolve(__dirname, 'index.js')))
       })
 
       it('should accept empty string', function () {
-        assert.equal(normalize(resolvePath(__dirname, '')),
+        assert.strictEqual(normalize(resolvePath(__dirname, '')),
           normalize(__dirname))
       })
     })
