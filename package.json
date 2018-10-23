@@ -42,5 +42,6 @@
     "resolve",
     "path",
     "safe"
-  ]
+  ],
+  "typings": "index.d.ts"
 }
