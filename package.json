@@ -9,8 +9,7 @@
   "license": "MIT",
   "repository": "pillarjs/resolve-path",
   "dependencies": {
-    "http-errors": "~1.6.3",
-    "path-is-absolute": "1.0.1"
+    "http-errors": "~1.6.3"
   },
   "devDependencies": {
     "eslint": "5.6.0",
@@ -30,7 +29,7 @@
     "index.js"
   ],
   "engines": {
-    "node": ">= 0.8"
+    "node": ">= 0.11.2"
   },
   "scripts": {
     "lint": "eslint --plugin markdown --ext js,md .",
