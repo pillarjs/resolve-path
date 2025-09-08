@@ -1,6 +1,8 @@
 unreleased
 ==========
 
+  * deps: http-errors@2.0.0
+  * deps: path-is-absolute@2.0.0
   * deps: http-errors@~1.6.3
     - deps: depd@~1.1.2
     - deps: setprototypeof@1.1.0
