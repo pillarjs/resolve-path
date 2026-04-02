@@ -1,9 +1,9 @@
 # resolve-path
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![Node.js Version][node-image]][node-url]
-[![Linux Build][travis-image]][travis-url]
+[![NPM Version][npm-version-image]][npm-url]
+[![NPM Downloads][npm-downloads-image]][npm-url]
+[![Node.js Version][node-version-image]][node-version-url]
+[![Build Status][github-actions-ci-image]][github-actions-ci-url]
 [![Windows Build][appveyor-image]][appveyor-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 
@@ -97,15 +97,14 @@ server.listen(3000)
 
 [MIT](LICENSE)
 
-[npm-image]: https://img.shields.io/npm/v/resolve-path.svg
-[npm-url]: https://npmjs.org/package/resolve-path
-[node-image]: https://img.shields.io/node/v/resolve-path.svg
-[node-url]: http://nodejs.org/download/
-[travis-image]: https://img.shields.io/travis/pillarjs/resolve-path/master.svg?label=linux
-[travis-url]: https://travis-ci.org/pillarjs/resolve-path
+[coveralls-image]: https://badgen.net/coveralls/c/github/jshttp/accepts/master
+[coveralls-url]: https://coveralls.io/r/jshttp/accepts?branch=master
+[github-actions-ci-image]: https://badgen.net/github/checks/jshttp/accepts/master?label=ci
+[github-actions-ci-url]: https://github.com/jshttp/accepts/actions/workflows/ci.yml
+[node-version-image]: https://badgen.net/npm/node/accepts
+[node-version-url]: https://nodejs.org/en/download
+[npm-downloads-image]: https://badgen.net/npm/dm/accepts
+[npm-url]: https://npmjs.org/package/accepts
+[npm-version-image]: https://badgen.net/npm/v/accepts
 [appveyor-image]: https://img.shields.io/appveyor/ci/dougwilson/resolve-path/master.svg?label=windows
 [appveyor-url]: https://ci.appveyor.com/project/dougwilson/resolve-path
-[coveralls-image]: https://img.shields.io/coveralls/pillarjs/resolve-path/master.svg
-[coveralls-url]: https://coveralls.io/r/pillarjs/resolve-path?branch=master
-[downloads-image]: https://img.shields.io/npm/dm/resolve-path.svg
-[downloads-url]: https://npmjs.org/package/resolve-path
