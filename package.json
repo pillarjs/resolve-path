@@ -27,7 +27,8 @@
     "HISTORY.md",
     "LICENSE",
     "README.md",
-    "index.js"
+    "index.js",
+    "index.d.ts"
   ],
   "engines": {
     "node": ">= 0.8"
@@ -42,5 +43,6 @@
     "resolve",
     "path",
     "safe"
-  ]
+  ],
+  "typings": "index.d.ts"
 }
