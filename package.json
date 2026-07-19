@@ -9,7 +9,7 @@
   "license": "MIT",
   "repository": "pillarjs/resolve-path",
   "dependencies": {
-    "http-errors": "~1.6.3",
+    "http-errors": "~2.0.1",
     "path-is-absolute": "1.0.1"
   },
   "devDependencies": {
